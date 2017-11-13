@@ -1,10 +1,73 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>GIT</title>
+	<title>Skillogram</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="CSS/main.css">
 </head>
 <body>
-	<h1>Hello GIT</h1>
-	<h1>Hello 2</h1>
+	<div id="wrapper">
+		<header>
+			<img id="logo" src="img/Instagram_logo.svg.png" width="15%" height="100%" alt="Skillogram" />
+			<div  class="buttons_block">
+				<button class="sort"><b>По рейтингу</b></button>
+				<button class="sort"><b>Случайно</b></button>
+			</div>
+			<div id="search&register">
+				<button id="search_img" type="submit" form="search">
+					<img src="img/poisk-300x299.png" width="5%" height="5%" alt="Поиск" />
+				</button>
+				<form id="search">
+					<input name="search" placeholder="Поиск">
+				</form>
+				<button id="login"><b>Вход</b></button>
+				<button id="register"><b>Регистрация</b></button>
+			</div>
+		</header>
+		<div id="tags_search">
+				<button>#1tag</button>
+				<button>#2tag</button>
+				<button>#3tag</button>
+				<button>#4tag</button>
+				<button>#5tag</button>
+				<button>#6tag</button>
+				<button>#7tag</button>
+				<button>#8tag</button>
+		</div>
+		<div class="posts_block">
+			<div>
+				<div class="post_auther">
+					<img src="" alt="Аватара" />
+				</div>
+				<div class="post_info">
+					Имя и дата
+				</div>
+			</div>
+			<div class="post_img">
+				<img src="" alt="post_img">
+			</div>
+			<div class="post_tags">
+				<a href="#">#1tag</a>, <a href="#">#2tag</a>
+			</div>
+
+			
+		</div>
+		<footer>
+			<b>Developer © 2017</b>
+			<div class="buttons_block">
+				<button><b>О проекте</b></button>
+				<button><b>Помощь</b></button>
+				<button><b>Поддержать проект</b></button>
+			</div>
+			<div>
+				<form id="subscription">
+					<input name="subscription" placeholder="Ваш e-mail, чтобы получать вдохновение">
+				</form>
+				<button id="subs_butt" type="submit" form="subscription">Подписаться</button>
+			</div>
+		</footer>
+	</div>
 </body>
 </html>
+
+<!--	http://terminator-gtk3.readthedocs.io/en/latest/ -->
