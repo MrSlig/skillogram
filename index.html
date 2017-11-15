@@ -1,72 +1,454 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
+
 <head>
 	<title>Skillogram</title>
 	<meta charset="utf-8">
+	<link rel="stylesheet" href="reset.css">
 	<link rel="stylesheet" type="text/css" href="CSS/main.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<meta name="description" content="Skillogram covers current SkillUp basic PHP course.">
+	<style>[data-columns]::before{visibility:hidden;position:absolute;font-size:1px;}</style>
 </head>
+
+<div id="warning-container">
+	<i data-reactroot=""></i>
+</div>
+
 <body>
-	<div id="wrapper">
-		<header>
-			<img id="logo" src="img/Instagram_logo.svg.png" width="15%" height="100%" alt="Skillogram" />
-			<div  class="buttons_block">
-				<button class="sort"><b>По рейтингу</b></button>
-				<button class="sort"><b>Случайно</b></button>
-			</div>
-			<div id="search&register">
-				<button id="search_img" type="submit" form="search">
-					<img src="img/poisk-300x299.png" width="5%" height="5%" alt="Поиск" />
-				</button>
-				<form id="search">
-					<input name="search" placeholder="Поиск">
-				</form>
-				<button id="login"><b>Вход</b></button>
-				<button id="register"><b>Регистрация</b></button>
-			</div>
-		</header>
-		<div id="tags_search">
-				<button>#1tag</button>
-				<button>#2tag</button>
-				<button>#3tag</button>
-				<button>#4tag</button>
-				<button>#5tag</button>
-				<button>#6tag</button>
-				<button>#7tag</button>
-				<button>#8tag</button>
-		</div>
-		<div class="posts_block">
-			<div>
-				<div class="post_auther">
-					<img src="" alt="Аватара" />
-				</div>
-				<div class="post_info">
-					Имя и дата
-				</div>
-			</div>
-			<div class="post_img">
-				<img src="" alt="post_img">
-			</div>
-			<div class="post_tags">
-				<a href="#">#1tag</a>, <a href="#">#2tag</a>
+
+	<!--::before-->
+
+	<header class="header">
+
+		<h1 class="header_logo">
+			<span class="header_logo-skillogram">SKILLOGRAM</span>
+		</h1>
+
+		<span  class="sort_rate">
+			<ul class="sort_rate-butt">
+				<li>
+					<button class="sort_rate-1">По рейтингу</button>
+				</li>
+				<li>
+					<button class="sort_rate-0">Случайно</button>
+				</li>
+			</ul>
+		</span>
+
+		<span class="search">
+			<form id="search_form" action="/search/" method="get" target="_parent" accept-charset="utf-8" autocomplete="on">
+				<fieldset class="header_search_form" form="search_form" name="search_ffield">
+					<input class="header_search_form-field" maxlength="64" name="search" placeholder="Искать здесь..." autofocus="on" form="search_form" pattern="^(#[[:alnum:]]+)$" required="" type="search"/>
+					<button class="header_search_form-butt" type="submit" form="search_form">
+						<!--<img src="img/poisk-300x299.png" width="5%" height="5%" alt="Поиск"/>-->
+					</button>
+				</fieldset>
+			</form>
+		</span>
+
+		<span class="auth_user">
+			<ul class="auth_user-butt">
+				<li>
+					<button class="auth_user-butt_log">Вход</button>
+				</li>
+				<li>
+					<button class="auth_user-butt_reg">Регистрация</button>
+				</li>
+			</ul>
+		</span>
+
+		<!--::after-->
+
+	</header>
+
+	<span class="tags_sort">
+		<ul>
+			<li><button>#1tag</button></li>
+			<li><button>#2tag</button></li>
+			<li><button>#3tag</button></li>
+			<li><button>#4tag</button></li>
+			<li><button>#5tag</button></li>
+			<li><button>#6tag</button></li>
+			<li><button>#7tag</button></li>
+			<li><button>#8tag</button></li>
+		</ul>
+	</span>
+
+	<main class="layout">
+
+		<!--::before-->
+
+		<h2 class="layout_title">Content</h2>
+<!--_______________________________________________________________________________________________________________________________________________________________-->
+<!--_______________________________________________________________________________________________________________________________________________________________-->
+		<article class="post"><!--1-->
+
+			<!--::before-->
+
+			<div class="post_header">
+
+				<a class="post_user_link" href="#">
+
+					<img class="post_user_ava" src="https://html5book.ru/wp-content/uploads/2016/10/profile-image.png" alt="^_^" />
+
+					<h3 class="post_user_name">
+						И.И. Иванов
+					</h3>
+
+				</a>
+
+				<a class="post_date_link" href="#">
+					<time datetime="2017-11-14">14 Ноября 2017</time>
+					<!--<h4 class="post_date">
+						В прошлом тысячелетии
+					</h4>-->
+				</a>
+
 			</div>
 
-			
-		</div>
-		<footer>
-			<b>Developer © 2017</b>
-			<div class="buttons_block">
-				<button><b>О проекте</b></button>
-				<button><b>Помощь</b></button>
-				<button><b>Поддержать проект</b></button>
+			<figure class="post_main">
+
+				<img class="post_img" src="http://4.bp.blogspot.com/-z4sMggeD4dg/UO2TB9INuFI/AAAAAAAAdwc/Kg5dqlKKHrQ/s1600/funny-cat-pictures-032-025.jpg" alt="Post image (ASCII pic add)"/>
+
+				<figcaption>
+
+					<div class="post_downbar">
+
+						<button class="post_likes">
+							77
+						</button>
+						<button class="post_download">
+							
+						</button>
+
+					</div>
+
+					<div class="post_tags">
+						<a href="#">#1tag</a>, <a href="#">#2tag</a>
+					</div>
+
+				</figcaption>
+
+			</figure>
+
+			<!--::after-->
+
+		</article>
+<!--_______________________________________________________________________________________________________________________________________________________________-->
+<!--_______________________________________________________________________________________________________________________________________________________________-->
+		<article class="post"><!--2-->
+
+			<!--::before-->
+
+			<div class="post_header">
+
+				<a class="post_user_link" href="#">
+
+					<img class="post_user_ava" src="https://html5book.ru/wp-content/uploads/2016/10/profile-image.png" alt="^_^" />
+
+					<h3 class="post_user_name">
+						И.И. Иванов
+					</h3>
+
+				</a>
+
+				<a class="post_date_link" href="#">
+					<time datetime="2017-11-14">14 Ноября 2017</time>
+					<!--<h4 class="post_date">
+						В прошлом тысячелетии
+					</h4>-->
+				</a>
+
 			</div>
-			<div>
-				<form id="subscription">
-					<input name="subscription" placeholder="Ваш e-mail, чтобы получать вдохновение">
+
+			<figure class="post_main">
+
+				<img class="post_img" src="http://4.bp.blogspot.com/-z4sMggeD4dg/UO2TB9INuFI/AAAAAAAAdwc/Kg5dqlKKHrQ/s1600/funny-cat-pictures-032-025.jpg" alt="Post image (ASCII pic add)"/>
+
+				<figcaption>
+
+					<div class="post_downbar">
+
+						<button class="post_likes">
+							77
+						</button>
+						<button class="post_download">
+							
+						</button>
+
+					</div>
+
+					<div class="post_tags">
+						<a href="#">#1tag</a>, <a href="#">#2tag</a>
+					</div>
+
+				</figcaption>
+
+			</figure>
+
+			<!--::after-->
+
+		</article>
+<!--_______________________________________________________________________________________________________________________________________________________________-->
+<!--_______________________________________________________________________________________________________________________________________________________________-->
+		<article class="post"><!--3-->
+
+			<!--::before-->
+
+			<div class="post_header">
+
+				<a class="post_user_link" href="#">
+
+					<img class="post_user_ava" src="https://html5book.ru/wp-content/uploads/2016/10/profile-image.png" alt="^_^" />
+
+					<h3 class="post_user_name">
+						И.И. Иванов
+					</h3>
+
+				</a>
+
+				<a class="post_date_link" href="#">
+					<time datetime="2017-11-14">14 Ноября 2017</time>
+					<!--<h4 class="post_date">
+						В прошлом тысячелетии
+					</h4>-->
+				</a>
+
+			</div>
+
+			<figure class="post_main">
+
+				<img class="post_img" src="http://4.bp.blogspot.com/-z4sMggeD4dg/UO2TB9INuFI/AAAAAAAAdwc/Kg5dqlKKHrQ/s1600/funny-cat-pictures-032-025.jpg" alt="Post image (ASCII pic add)"/>
+
+				<figcaption>
+
+					<div class="post_downbar">
+
+						<button class="post_likes">
+							77
+						</button>
+						<button class="post_download">
+							
+						</button>
+
+					</div>
+
+					<div class="post_tags">
+						<a href="#">#1tag</a>, <a href="#">#2tag</a>
+					</div>
+
+				</figcaption>
+
+			</figure>
+
+			<!--::after-->
+
+		</article>
+<!--_______________________________________________________________________________________________________________________________________________________________-->
+<!--_______________________________________________________________________________________________________________________________________________________________-->
+		<article class="post"><!--4-->
+
+			<!--::before-->
+
+			<div class="post_header">
+
+				<a class="post_user_link" href="#">
+
+					<img class="post_user_ava" src="https://html5book.ru/wp-content/uploads/2016/10/profile-image.png" alt="^_^" />
+
+					<h3 class="post_user_name">
+						И.И. Иванов
+					</h3>
+
+				</a>
+
+				<a class="post_date_link" href="#">
+					<time datetime="2017-11-14">14 Ноября 2017</time>
+					<!--<h4 class="post_date">
+						В прошлом тысячелетии
+					</h4>-->
+				</a>
+
+			</div>
+
+			<figure class="post_main">
+
+				<img class="post_img" src="http://4.bp.blogspot.com/-z4sMggeD4dg/UO2TB9INuFI/AAAAAAAAdwc/Kg5dqlKKHrQ/s1600/funny-cat-pictures-032-025.jpg" alt="Post image (ASCII pic add)"/>
+
+				<figcaption>
+
+					<div class="post_downbar">
+
+						<button class="post_likes">
+							77
+						</button>
+						<button class="post_download">
+							
+						</button>
+
+					</div>
+
+					<div class="post_tags">
+						<a href="#">#1tag</a>, <a href="#">#2tag</a>
+					</div>
+
+				</figcaption>
+
+			</figure>
+
+			<!--::after-->
+
+		</article>
+<!--_______________________________________________________________________________________________________________________________________________________________-->
+<!--_______________________________________________________________________________________________________________________________________________________________-->
+		<article class="post"><!--5-->
+
+			<!--::before-->
+
+			<div class="post_header">
+
+				<a class="post_user_link" href="#">
+
+					<img class="post_user_ava" src="https://html5book.ru/wp-content/uploads/2016/10/profile-image.png" alt="^_^" />
+
+					<h3 class="post_user_name">
+						И.И. Иванов
+					</h3>
+
+				</a>
+
+				<a class="post_date_link" href="#">
+					<time datetime="2017-11-14">14 Ноября 2017</time>
+					<!--<h4 class="post_date">
+						В прошлом тысячелетии
+					</h4>-->
+				</a>
+
+			</div>
+
+			<figure class="post_main">
+
+				<img class="post_img" src="http://4.bp.blogspot.com/-z4sMggeD4dg/UO2TB9INuFI/AAAAAAAAdwc/Kg5dqlKKHrQ/s1600/funny-cat-pictures-032-025.jpg" alt="Post image (ASCII pic add)"/>
+
+				<figcaption>
+
+					<div class="post_downbar">
+
+						<button class="post_likes">
+							77
+						</button>
+						<button class="post_download">
+							
+						</button>
+
+					</div>
+
+					<div class="post_tags">
+						<a href="#">#1tag</a>, <a href="#">#2tag</a>
+					</div>
+
+				</figcaption>
+
+			</figure>
+
+			<!--::after-->
+
+		</article>
+<!--_______________________________________________________________________________________________________________________________________________________________-->
+<!--_______________________________________________________________________________________________________________________________________________________________-->
+		<article class="post"><!--6-->
+
+			<!--::before-->
+
+			<div class="post_header">
+
+				<a class="post_user_link" href="#">
+
+					<img class="post_user_ava" src="https://html5book.ru/wp-content/uploads/2016/10/profile-image.png" alt="^_^" />
+
+					<h3 class="post_user_name">
+						И.И. Иванов
+					</h3>
+
+				</a>
+
+				<a class="post_date_link" href="#">
+					<time datetime="2017-11-14">14 Ноября 2017</time>
+					<!--<h4 class="post_date">
+						В прошлом тысячелетии
+					</h4>-->
+				</a>
+
+			</div>
+
+			<figure class="post_main">
+
+				<img class="post_img" src="http://4.bp.blogspot.com/-z4sMggeD4dg/UO2TB9INuFI/AAAAAAAAdwc/Kg5dqlKKHrQ/s1600/funny-cat-pictures-032-025.jpg" alt="Post image (ASCII pic add)"/>
+
+				<figcaption>
+
+					<div class="post_downbar">
+
+						<button class="post_likes">
+							77
+						</button>
+						<button class="post_download">
+							
+						</button>
+
+					</div>
+
+					<div class="post_tags">
+						<a href="#">#1tag</a>, <a href="#">#2tag</a>
+					</div>
+
+				</figcaption>
+
+			</figure>
+
+			<!--::after-->
+
+		</article>
+<!--_______________________________________________________________________________________________________________________________________________________________-->
+<!--_______________________________________________________________________________________________________________________________________________________________-->
+		<div class="break"></div>
+	</main>
+	
+	<footer class="footer">
+
+		<!--::before-->
+
+		<span class="footer_copy">
+
+			<address class="address">
+				<a class="footer_link footer_link--address" href="#">Developer © 2017</a>
+			</address>
+
+			<span class="footer_mid">
+				<nav class="footer_nav">
+					<a class="footer_link" href="#">О проекте</a>
+					<a class="footer_link" href="#">Помощь</a>
+					<a class="footer_link" href="#">Поддержать проект</a>
+				</nav>
+			</span>
+
+			<span class="subscription">
+				<form id="sub_form" action="mailto:subscription_bot@skillogram.ru" method="post" target="_self" 
+					enctype="text/plain" accept-charset="utf-8" autocomplete="off">
+					<fieldset class="footer_sub_form" form="sub_form" name="sub_ffield">
+						<input class="footer_sub_form-field" maxlength="64" name="subscription" placeholder="Ваш e-mail, чтобы получать вдохновение"
+							 form="sub_form" pattern="^([[:alnum:]\._-]+@[[:alnum:]\._-]+(\.[[:alnum:]]+)+)*$" required="" type="email"/>
+						<button class="sub_form_butt" type="submit" form="sub_form">Подписаться</button>
+					</fieldset>
 				</form>
-				<button id="subs_butt" type="submit" form="subscription">Подписаться</button>
-			</div>
-		</footer>
-	</div>
+			</span>
+
+		</span>
+
+		<!--::after-->
+
+	</footer>
 </body>
 </html>
 
