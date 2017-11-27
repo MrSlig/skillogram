@@ -22,7 +22,7 @@
 	<header class="header">
 
 		<?php
-		$head = include 'header.php';
+		$head = include 'PHP/header.php';
 		echo $head;
 		?>
 
@@ -48,7 +48,7 @@
 		<h2 class="layout_title">Content</h2>
 
 			<?php
-			$arti = include 'article.php';
+			$arti = include 'PHP/article.php';
 			echo $arti;
 			echo $arti;
 			echo $arti;
@@ -63,7 +63,7 @@
 	<footer class="footer">
 
 		<?php
-		$foot = include 'footer.php';
+		$foot = include 'PHP/footer.php';
 		echo $foot;
 		?>
 
