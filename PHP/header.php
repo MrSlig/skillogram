@@ -17,12 +17,10 @@ $var = '
 </span>
 
 <span class="search">
-	<form id="search_form" action="/search/" method="get" target="_parent" accept-charset="utf-8" autocomplete="on">
-		<fieldset class="header_search_form" form="search_form" name="search_ffield">
-			<input class="header_search_form-field" maxlength="64" name="search" placeholder="Искать здесь..." autofocus="on" form="search_form" pattern="^(#[[:alnum:]]+)$" required="" type="search"/>
-			<button class="header_search_form-butt" type="submit" form="search_form">
-				<!--<img src="img/poisk-300x299.png" width="5%" height="5%" alt="Поиск"/>-->
-			</button>
+	<form id="search_form" action="index.php" method="get" target="_self" accept-charset="utf-8" autocomplete="on">
+		<fieldset class="header_search_form" form="search_form" name="search_field">
+			<input class="header_search_form-field" maxlength="64" name="search_tag" placeholder="Искать здесь..." autofocus="on" form="search_form" pattern="^(#[[:alnum:]]+)$" required="" type="search"/>
+			<button class="header_search_form-butt" type="submit" form="search_form"></button>
 		</fieldset>
 	</form>
 </span>
