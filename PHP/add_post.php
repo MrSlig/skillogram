@@ -3,7 +3,7 @@
 $get_ava = isset($_POST['ava']) ? $_POST['ava'] : false;
 $get_name = isset($_POST['name']) ? $_POST['name'] : false;
 $get_date = date('Y-m-d H:i:s');
-$get_image = isset($_POST['img_input']) ? $_POST['img_input'] : false;
+$get_image = isset($_POST['img_input']) ? $_POST['img_input'] : false; //сохранить в каталог и забрать в массив путь
 $get_tags = isset($_POST['tag_input']) ? $_POST['tag_input'] : false;
 $get_legend = isset($_POST['legend_input']) ? $_POST['legend_input'] : false;
 

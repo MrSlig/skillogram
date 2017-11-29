@@ -1,103 +1,13 @@
 <?php
 
-$posts = [
-    [
-        'user' => [
-            'ava' => 'https://html5book.ru/wp-content/uploads/2016/10/profile-image.png',
-            'name' => 'И.И. Иванов',
-        ],
-        'date' => '14 Ноября 2017',
-        'content' => 'http://4.bp.blogspot.com/-z4sMggeD4dg/UO2TB9INuFI/AAAAAAAAdwc/Kg5dqlKKHrQ/s1600/funny-cat-pictures-032-025.jpg',
-        'likes' => 77,
-        'tags' => [
-            '#1tag',
-            '#2tag',
-            '#3tag',
-            '#4tag',
-            '#5tag',
-        ],
-    ],
-    [
-        'user' => [
-            'ava' => 'https://html5book.ru/wp-content/uploads/2016/10/profile-image.png',
-            'name' => 'И.И. Иванов',
-        ],
-        'date' => '14 Ноября 2017',
-        'content' => 'http://4.bp.blogspot.com/-z4sMggeD4dg/UO2TB9INuFI/AAAAAAAAdwc/Kg5dqlKKHrQ/s1600/funny-cat-pictures-032-025.jpg',
-        'likes' => 77,
-        'tags' => [
-            '#1tag',
-            '#2tag',
-            '#3tag',
-            '#4tag',
-            '#5tag',
-        ],
-    ],
-    [
-        'user' => [
-            'ava' => 'https://html5book.ru/wp-content/uploads/2016/10/profile-image.png',
-            'name' => 'И.И. Иванов',
-        ],
-        'date' => '14 Ноября 2017',
-        'content' => 'http://4.bp.blogspot.com/-z4sMggeD4dg/UO2TB9INuFI/AAAAAAAAdwc/Kg5dqlKKHrQ/s1600/funny-cat-pictures-032-025.jpg',
-        'likes' => 77,
-        'tags' => [
-            '#1tag',
-            '#2tag',
-            '#3tag',
-            '#4tag',
-            '#5tag',
-        ],
-    ],
-    [
-        'user' => [
-            'ava' => 'https://html5book.ru/wp-content/uploads/2016/10/profile-image.png',
-            'name' => 'И.И. Иванов',
-        ],
-        'date' => '14 Ноября 2017',
-        'content' => 'http://4.bp.blogspot.com/-z4sMggeD4dg/UO2TB9INuFI/AAAAAAAAdwc/Kg5dqlKKHrQ/s1600/funny-cat-pictures-032-025.jpg',
-        'likes' => 77,
-        'tags' => [
-            '#1tag',
-            '#2tag',
-            '#3tag',
-            '#4tag',
-            '#5tag',
-        ],
-    ],
-    [
-        'user' => [
-            'ava' => 'https://html5book.ru/wp-content/uploads/2016/10/profile-image.png',
-            'name' => 'И.И. Иванов',
-        ],
-        'date' => '14 Ноября 2017',
-        'content' => 'http://4.bp.blogspot.com/-z4sMggeD4dg/UO2TB9INuFI/AAAAAAAAdwc/Kg5dqlKKHrQ/s1600/funny-cat-pictures-032-025.jpg',
-        'likes' => 77,
-        'tags' => [
-            '#1tag',
-            '#2tag',
-            '#3tag',
-            '#4tag',
-            '#5tag',
-        ],
-    ],
-    [
-        'user' => [
-            'ava' => 'https://html5book.ru/wp-content/uploads/2016/10/profile-image.png',
-            'name' => 'И.И. Иванов',
-        ],
-        'date' => '14 Ноября 2017',
-        'content' => 'http://4.bp.blogspot.com/-z4sMggeD4dg/UO2TB9INuFI/AAAAAAAAdwc/Kg5dqlKKHrQ/s1600/funny-cat-pictures-032-025.jpg',
-        'likes' => 77,
-        'tags' => [
-            '#1tag',
-            '#2tag',
-            '#3tag',
-            '#4tag',
-            '#5tag',
-        ],
-    ],
-];
+if (file_exists('../assets/post.json')) {   
+    $json = file_get_contents('../assets/post.json');
+} else {
+    //something to be done
+    $json = 'warning';
+}
+
+$posts = json_decode($json, true);
 
 //$json = json_encode($posts, JSON_UNESCAPED_UNICODE);
 //file_put_contents('posts.json', $json);
@@ -177,7 +87,6 @@ return $article;
 if (isset ($_GET['search_tag'])) {
     //ereg
     preg_match ("/^(#[[:alnum:]]+)$/", $_GET['search_tag'], $s_tags);
-    $s_tags = $_GET['search_tag'];
 } else {
     false;
 }
@@ -195,7 +104,9 @@ if (isset ($s_tags[0])) {
         $asced = false;
         for ($j = 0, $tags_counted = count($posts[$i]['tags']); $j < $tags_counted; $j++) {
             $tags .= $posts[$i]['tags'][$j] . ', ';
-            $asked = $posts[$i]['tags'][$j] == $s_tags[0] ? true : false;
+            if ($posts[$i]['tags'][$j] == $s_tags[0]) {
+                $asked = true;
+            }           
         }
         if ($asked) {
             $tags = substr($tags, 0, -2);
