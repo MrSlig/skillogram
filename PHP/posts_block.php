@@ -125,4 +125,7 @@ if (isset ($s_tags[0])) {
         $post_block .= $article;
     }
 }
+
+$post_block = var_dump($posts);
+
 return $post_block;

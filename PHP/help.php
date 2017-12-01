@@ -21,12 +21,16 @@
 
 	<main class="layout">
 
-		<h2 class="layout_title">О Skillogram</h2>
+		<h2 class="layout_title">Помощь</h2>
 
 		<span class="about">
-			<h3>Информация о проекте</h3>
 			<div>
-				<p>Данный сайт является результатом прохождения курса программирования на языке PHP, созданного командой SkillUp.</p>
+				<h3>Источники, справочники и другая информация</h3>
+				<p>a: <a href="#">1</a></p>
+				<p>b: <a href="#">2</a></p>
+				<p>c: <a href="#">3</a></p>
+				<p>d: <a href="#">4</a></p>
+				<p>e: <a href="#">5</a></p>
 			</div>
 		</span>
 

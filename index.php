@@ -2,23 +2,10 @@
 <html lang="ru">
 
 <head>
-    <title>Skillogram</title>
-    <meta charset="utf-8"/>
-    <link rel="stylesheet" href="assets/CSS/reset.css"/>
-    <link rel="stylesheet" type="text/css" href="assets/CSS/main.css"/>
-    <!-- FAVICON -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png"/>
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png"/>
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png"/>
-    <link rel="manifest" href="assets/images/favicon/manifest.json"/>
-    <link rel="mask-icon" href="assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5"/>
-    <link rel="shortcut icon" href="assets/images/favicon/favicon.ico"/>
-    <meta name="msapplication-config" content="assets/images/favicon/browserconfig.xml"/>
-    <meta name="theme-color" content="#ffffff"/>
-    <!-- /FAVICON -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
-    <meta name="description" content="Skillogram covers current SkillUp basic PHP course."/>
-    <style>[data-columns]::before{visibility:hidden;position:absolute;font-size:1px;}</style>       
+    <?php
+    $arti = include 'PHP/mainpage/mhead.php';
+    echo $arti;
+    ?>
 </head>
 
 <div id="warning-container">
@@ -30,23 +17,26 @@
 	<!--::before-->
 
 	<header class="header">
-		<?php
-		$head = include 'PHP/header.php';
-		echo $head;
-		?>
+            <?php
+            $arti = include 'PHP/mainpage/mheader.php';
+            echo $arti;
+            ?>
 	</header>
 
 	<span class="tags_sort">
-		<ul>
-			<li><button>#1tag</button></li>
-			<li><button>#2tag</button></li>
-			<li><button>#3tag</button></li>
-			<li><button>#4tag</button></li>
-			<li><button>#5tag</button></li>
-			<li><button>#6tag</button></li>
-			<li><button>#7tag</button></li>
-			<li><button>#8tag</button></li>
-		</ul>
+            <!-- here will be hidden search form wich can't be used by user & will _GET #tag from button 
+            or (better?) every button will be this form. Every form needs securecheck at backend -->
+            <!-- tags buttons will be formed by php with SQL #tag COUNT(*) ASC (i hope therefore i form request) -->
+            <ul>
+                <li><button>#1tag</button></li>
+                <li><button>#2tag</button></li>
+                <li><button>#3tag</button></li>
+                <li><button>#4tag</button></li>
+                <li><button>#5tag</button></li>
+                <li><button>#6tag</button></li>
+                <li><button>#7tag</button></li>
+                <li><button>#8tag</button></li>
+            </ul>
 	</span>
         <!--http://skillogram/index.php?search_tag=%231tag-->
 
@@ -54,19 +44,19 @@
 
 		<!--::before-->
 
-		<h2 class="layout_title">Content</h2>
-			<?php
-			$arti = include 'PHP/posts_block.php';
-			echo $arti;
-			?>
-		<div class="break"></div>
+                <h2 class="layout_title">Content</h2>
+                <?php
+                $arti = include 'PHP/posts_block.php';
+                echo $arti;
+                ?>
+                <div class="break"></div>
 	</main>
 	
 	<footer class="footer">
-		<?php
-		$foot = include 'PHP/footer.php';
-		echo $foot;
-		?>
+            <?php
+            $arti = include 'PHP/mainpage/mfooter.php';
+            echo $arti;
+            ?>
 	</footer>
 </body>
 </html>

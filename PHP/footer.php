@@ -6,19 +6,19 @@ $var = '
 <span class="footer_copy">
 
 	<address class="address">
-		<a class="footer_link footer_link--address" href="#">Developer © 2017</a>
+		<a class="footer_link footer_link--address" href="contacts.php">Developer © 2017</a>
 	</address>
 
 	<span class="footer_mid">
 		<nav class="footer_nav">
-			<a class="footer_link" href="#">О проекте</a>
-			<a class="footer_link" href="#">Помощь</a>
-			<a class="footer_link" href="#">Поддержать проект</a>
+			<a class="footer_link" href="about.php">О проекте</a>
+			<a class="footer_link" href="help.php">Помощь</a>
+			<a class="footer_link" href="support_skillogram.php">Поддержать проект</a>
 		</nav>
 	</span>
 
 	<span class="subscription">
-		<form id="sub_form" action="mailto:subscription_bot@skillogram.ru" method="post" target="_self" 
+		<form id="sub_form" action="subscription.php" method="post" target="_self" 
 			enctype="text/plain" accept-charset="utf-8" autocomplete="off">
 			<fieldset class="footer_sub_form" form="sub_form" name="sub_ffield">
 				<input class="footer_sub_form-field" maxlength="64" name="subscription" placeholder="Ваш e-mail, чтобы получать вдохновение"
