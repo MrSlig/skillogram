@@ -1,0 +1,3 @@
+SELECT `ip`
+COUNT(`ip`) AS `enteries`
+FROM `log`

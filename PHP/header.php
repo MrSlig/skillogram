@@ -2,16 +2,16 @@
 $var = '
 
 <h1 class="header_logo">
-	<span class="header_logo-skillogram">SKILLOGRAM</span>
+	<a href="../index.php" class="header_logo-skillogram">SKILLOGRAM</a>
 </h1>
 
 <span  class="sort_rate">
 	<ul class="sort_rate-butt">
 		<li>
-			<button class="sort_rate-1">По рейтингу</button>
+			<button class="sort_rate-1" type="sumbit" action="../index.php" method="get">По рейтингу</button>
 		</li>
 		<li>
-			<button class="sort_rate-0">Случайно</button>
+			<button class="sort_rate-0" type="sumbit" action="../index.php" method="get">Случайно</button>
 		</li>
 	</ul>
 </span>

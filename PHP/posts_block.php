@@ -1,27 +1,29 @@
 <?php
 
-if (file_exists('../assets/post.json')) {   
-    $json = file_get_contents('../assets/post.json');
+function content_decode ($content_file) {
+    
+if (file_exists($content_file)) {
+    $json = file_get_contents($content_file);
 } else {
     //something to be done
     $json = 'warning';
 }
-
 $posts = json_decode($json, true);
+
+return $posts;
+}
 
 //$json = json_encode($posts, JSON_UNESCAPED_UNICODE);
 //file_put_contents('posts.json', $json);
 
-$i = 0;
-$j = 0;
-$tags = '';
+$posts = content_decode ('assets/posts.json');
 
 /* Function for making single post */
 
 function make_article($posts, $i, $j, $tags) {
 
 // Необходимо создать модуль, подтягивающий имя и аватару пользователя по его id, а не зранить это в массиве постов    
-
+    
 $article = '
 
 <article class="post">
@@ -54,7 +56,11 @@ $article = '
 		<img class="post_img" src="' . $posts[$i]['content'] . '" alt="Post image (ASCII pic add)"/>
 
 		<figcaption>
-
+                        
+                        <div class="post_legend">'
+                            . $posts[$i]['legend'] .
+                        '</div>
+                        
 			<div class="post_downbar">
 
 				<button class="post_likes">
@@ -65,10 +71,10 @@ $article = '
 				</button>
 
 			</div>
-
+                        
 			<div class="post_tags">'
-        . '<a href="#">' . $tags . '</a>' .
-        '</div>
+                            . '<a href="#">' . $tags . '</a>' .
+                        '</div>
 
 		</figcaption>
 
@@ -125,7 +131,5 @@ if (isset ($s_tags[0])) {
         $post_block .= $article;
     }
 }
-
-$post_block = var_dump($posts);
 
 return $post_block;
