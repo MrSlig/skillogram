@@ -14,3 +14,42 @@ $('#md5-form').on('submit', function() {
 	
 });
 </script>
+
+
+
+____________
+
+
+
+<?php
+
+if (!empty($_GET['value'])) { 
+    echo md5($_GET['value']);
+    die();
+}
+
+//echo md5("Hello world!");
+
+?>
+
+<form action="" method="get" id="md5-form">
+    <input type="text" name="value" />
+    <input type="submit" value="Go!" />
+</form>
+
+<script type="text/javascript" src="jquery.min.js"></script>
+
+<script type="text/javascript">
+$('#md5-form').on('submit', function() {
+	
+    $.ajax({
+        data: $(this).serialize(),
+        success: function(response){
+            alert(response);
+        }
+    });    
+        
+        //alert('Hello world!');
+    return false;
+});
+</script>

@@ -150,7 +150,13 @@ $post_block = '';
 $article = '';
 
 $posts_counted = count($posts);
-$s_tags_counted = isset($s_tags[0]) ? count((array)$s_tags) : false;    // number of searched tags !!!
+if (isset($s_tags[0])) {
+    $s_tags_counted = count((array)$s_tags); // number of searched tags !!!
+    // exeption
+    $s_tags_list = implode (', ', (array)$s_tags);  // <- try to find better solution
+}
+// $s_tags_counted = isset($s_tags[0]) ? count((array)$s_tags) : false;    // number of searched tags !!!
+
 for ($i = 0; $i < $posts_counted; $i++) { // перебираем посты
     
     $tags = '';
@@ -180,7 +186,7 @@ for ($i = 0; $i < $posts_counted; $i++) { // перебираем посты
 }
 
 // exeption
-$s_tags_list = implode (', ', (array)$s_tags);  // <- try to find better solution
+// $s_tags_list = implode (', ', (array)$s_tags);  // <- try to find better solution
 $post_block .= ($post_block == '') ? 'Таких тегов (' . $s_tags_list . ') у нас еще не было. (0_o) </br> Пожалуйста, уточните свой поисковый запрос или создайте новый пост с таким тегом. (^_^)': '';
 
 return $post_block;

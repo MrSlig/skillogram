@@ -35,7 +35,7 @@ if (count($array)) {
     foreach ($array as $value) {
         $value < $min ? $min = $value : false;
     };
-echo 'Минимум массива = ' . $min . '</br>';
+	echo 'Минимум массива = ' . $min . '</br>';
 } else {
     echo 'Нет элементов в массиве.' . '</br>';
 }
