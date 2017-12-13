@@ -248,22 +248,21 @@ input::-ms-input-placeholder {
 
 /* Тело / Body */
 
+/*tags_block*/
 .tags_sort {
-	width: 100%;
-	/*
-	display: webkit-box;
-	display: ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
-	flex-direction: column;
-	-webkit-box-pack: justify;
-	-moz-box-pack: justify;
-	-ms-box-pack: justify;
-	justify-content: space-between;
-	*/
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+	-webkit-justify-content: space-around;
+	justify-content:space-around;
+	align-items: center;
+	align-content: center;
 }
 .tags_sort li {
-	display: inline;
+	display: inline-flex;
 }
+/*tags_block_btn*/
 .tags_sort button {
 	min-width: 5em;
 	border-style: solid;
@@ -274,6 +273,7 @@ input::-ms-input-placeholder {
 .tags_sort button:active {
 	text-decoration: none;
 }
+/*end: tags_sort*/
 
 .layout {
 	width: 100%;
@@ -393,7 +393,8 @@ input::-ms-input-placeholder {
 /* Подвал / Footer*/
 
 .footer {
-
+	padding-top: 3em;
+	padding-bottom: 4em;
 }
 
 .footer_copy {

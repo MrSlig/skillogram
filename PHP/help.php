@@ -26,9 +26,9 @@
 		<span class="about">
 			<div>
 				<h3>Источники, справочники и другая информация</h3>
-				<p>a: <a href="#">1</a></p>
-				<p>b: <a href="#">2</a></p>
-				<p>c: <a href="#">3</a></p>
+				<p>PHP documentation: <a href="http://php.net/">PHP.net</a></p>
+				<p>Уроки и примеры html5 & CSS3: <a href="https://html5book.ru/">html5book.ru</a></p>
+				<p>Онлайн-инструменты для генерирования CSS: <a href="https://html5book.ru/generatory-css/">html5book.ru/generatory-css</a></p>
 				<p>d: <a href="#">4</a></p>
 				<p>e: <a href="#">5</a></p>
 			</div>

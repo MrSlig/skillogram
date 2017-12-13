@@ -1,0 +1,27 @@
+.tags_sort {
+	width: 100%;
+	/*
+	display: webkit-box;
+	display: ms-flexbox;
+	display: flex;
+	flex-direction: column;
+	-webkit-box-pack: justify;
+	-moz-box-pack: justify;
+	-ms-box-pack: justify;
+	justify-content: space-between;
+	*/
+}
+.tags_sort li {
+	display: inline;
+}
+.tags_sort button {
+	min-width: 5em;
+	border-style: solid;
+}
+.tags_sort button:hover {
+	text-decoration: none;
+}
+.tags_sort button:active {
+	text-decoration: none;
+}
+/*/tags_sort*/

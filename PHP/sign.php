@@ -22,9 +22,10 @@
 	<main class="layout">
 
 		<h2 class="layout_title">Регистраиця или вход</h2>
-
+                
+                <!-- rewrite this block -->
 		<span class="new_post">
-			<form id="new_post_form" action="add_post.php" enctype="multipart/form-data" method="post" target="_self" accept-charset="utf-8" autocomplete="off">
+                    <form id="new_post_form" action="user_id.php" enctype="multipart/form-data" method="post" target="_self" accept-charset="utf-8" autocomplete="off">
 				<fieldset class="new_post_form-fieldset" form="new_post_form" name="new_post_field">
 					<legend class="new_post_form-legend">Создать новый пост</legend>
                                         <!-- Необходимо добавить скрытую форму имени пользователя -->

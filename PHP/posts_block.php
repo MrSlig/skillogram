@@ -1,7 +1,7 @@
 <?php
 
-function content_decode ($content_file) {
-    
+/* this is OLD. Time to swap from file to sql db */
+function content_decode ($content_file) {    
 if (file_exists($content_file)) {
     $json = file_get_contents($content_file);
 } else {
@@ -9,25 +9,29 @@ if (file_exists($content_file)) {
     $json = 'no file to decode';
 }
 $posts = json_decode($json, true);
-
 return $posts;
 }
 
-//$json = json_encode($posts, JSON_UNESCAPED_UNICODE);
-//file_put_contents('posts.json', $json);
-
 $posts = content_decode ('assets/posts.json');
+/* end of exttracting posts data from our db */
 
-/* Function for making single post */
+/* defining date size */
+define("YEAR", 362 * 24 * 60 * 60);
+define("MONTH", 30 * 24 * 60 * 60);
+define("DAY", 24 * 60 * 60);
+define("HOUR", 60 * 60);
+define("MINUTE", 60);
+/* date size defined */
 
+/* Function for making single post (post carcass) */
 function make_article($posts, $i, $j, $tags) {
 
-// Необходимо создать модуль, подтягивающий имя и аватару пользователя по его id, а не зранить это в массиве постов
+// Необходимо создать модуль, подтягивающий имя и аватару пользователя по его id, а не хранить это в массиве постов
 // стоит ли тащить целый массив $posts каждый раз при выполнении  функции? Конечно же нет, исправь
 // поправь html-тело поста
 
-$passed_time_ago = passed_time(time()); // временно передаю текущее время вместо таймстампа поста
-$post_date = date('Y-m-d H:i:s', time());
+$passed_time_ago = passed_time(time()); // временно передаю текущее время вместо таймстампа поста из БД
+$post_date = date('Y-m-d H:i:s', time());   // this part is not showed to user; <time datetime="' . $post_date . '">
 
 $article = '
 
@@ -93,20 +97,10 @@ return $article;
 
 /* FORMING POST BLOCK */
 
-// вытащить формирование запроса по тэгам в отдельную функцию, чтобы сэкономить строки
-// время пойдет в виде таймстэмпа - надо сделать преобразование к виду "n времени назад"
-
-/* time post was published */
-
-define("YEAR", 362 * 24 * 60 * 60);
-define("MONTH", 30 * 24 * 60 * 60);
-define("DAY", 24 * 60 * 60);
-define("HOUR", 60 * 60);
-define("MINUTE", 60);
+/* 1. time post was published */
 
 $passed_time_ago = 'время публикации не указано';
-
-function passed_time($timestamp) { // прошерсти название переменных для даты и приведи к нормальному виду
+function passed_time($timestamp) {
     if(isset($timestamp)) {
         $passed_time = time() - $timestamp;
         $passed_time_ago = 'опубликовано';
@@ -133,29 +127,34 @@ function passed_time($timestamp) { // прошерсти название пер
     return $passed_time_ago;
 }
 
-/* tags check & sort by search*/
+/* 2. tags check & sort by search*/
 
-/* HAHAHAHAHAHAHAHAAH GETIING %23 instead # => FAIL */
+/* HAHAHAHAHAHAHAHAAH GETIING %23 instead # => FAIL
+ * also, look for ',' and ' ' replacements
+ * and, assuming that, write correct regular expression input check
+ */
 
 if (isset ($_GET['search_tag'])) {
-    preg_match ("/^(#[[:alnum:]]+)$/", $_GET['search_tag'], $reg_tags); // writing down searched tags if they pass check
-    $s_tags = array_shift($reg_tags); // cuts the text that matched the full pattern from $reg_tags[0]. Beware! if tere is 1 tag to serch it will be string instead array
+    preg_match ("/^(#[[:alnum:]]+)$/", $_GET['search_tag'], $regular_tags); // writing down searched tags if they pass check
+    $s_tags = array_shift($regular_tags); // cuts the text that matched the full pattern from $reg_tags[0]. Beware! if tere is 1 tag to serch it will be string instead array
 } else {
     // нужно будет дать сигнал пользователю о некорректном вводе поискового запроса
     false;
 }
 
-// инициализируем переменные (в пхп можно убрать лишние, стоит ли?)
-$post_block = '';
-$article = '';
-
-$posts_counted = count($posts);
+// counting user searched tags and forming string for exeption throw to user
 if (isset($s_tags[0])) {
     $s_tags_counted = count((array)$s_tags); // number of searched tags !!!
-    // exeption
     $s_tags_list = implode (', ', (array)$s_tags);  // <- try to find better solution
-}
-// $s_tags_counted = isset($s_tags[0]) ? count((array)$s_tags) : false;    // number of searched tags !!!
+}   // exeption
+// also, notice, that user dont know, which tags we don't have in our sql if one or more tags found
+
+/* 3. data proseeding */
+
+// инициализируем переменные (в пхп можно убрать лишние, стоит ли? NO)
+$posts_counted = count($posts);
+$post_block = '';
+$article = '';
 
 for ($i = 0; $i < $posts_counted; $i++) { // перебираем посты
     
@@ -164,10 +163,11 @@ for ($i = 0; $i < $posts_counted; $i++) { // перебираем посты
     for ($j = 0; $j < $tags_counted; $j++) {
         $no_hash = substr($posts[$i]['tags'][$j], 1);
         $tags .= '<a href="index.php?search_tag=%23' . $no_hash . '">' . $posts[$i]['tags'][$j] . '</a>, ';
-
-        $asked = true;                          // проверяем на наличие поискового запроса
+        
+        // i want to hightlight searched tags, when they are showed on page; mb add class to html code?
+        $asked = true;  // проверяем на наличие поискового запроса
         if (isset($s_tags_counted)) {
-            for ($k = 0; $k < $s_tags_counted; $k++) {      // проверяем соответствие поисковому запросу
+            for ($k = 0; $k < $s_tags_counted; $k++) {  // проверяем соответствие поисковому запросу
                 if ($posts[$i]['tags'][$j] == (array)$s_tags[$k]) { //!!!
                     $asked = true;
                 } else {
@@ -179,14 +179,13 @@ for ($i = 0; $i < $posts_counted; $i++) { // перебираем посты
     }
 
     if ($asked) {
-        $tags = substr($tags, 0, -2); // вырезаем запятую
+        $tags = substr($tags, 0, -2); // cutting last comma from the post tags block
         $article = make_article($posts, $i, $j, $tags, $passed_time_ago); // записывем данные поста в его html-форму
         $post_block .= $article;    // записывем обработанный пост в выводимый контент-лист
     }
 }
 
-// exeption
-// $s_tags_list = implode (', ', (array)$s_tags);  // <- try to find better solution
+// 5. search exeption
 $post_block .= ($post_block == '') ? 'Таких тегов (' . $s_tags_list . ') у нас еще не было. (0_o) </br> Пожалуйста, уточните свой поисковый запрос или создайте новый пост с таким тегом. (^_^)': '';
 
 return $post_block;
