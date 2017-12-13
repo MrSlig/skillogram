@@ -5,6 +5,8 @@ session_start([
     'cookie_lifetime' => 86400 * 365,
 ]);
 
+include_once './function.php';
+
 $_SESSION['colour'] = 'magenta';
 
 if (isset($_SESSION['colour'])) {
@@ -62,9 +64,10 @@ if(isset($_GET['login']) && isset($_GET['password']) && isset($_GET['type'])) {
             ':login' => $_GET['login'],
             ':password' => md5($_GET['password'] . $salt),
         ]);
+        addMessage('регистрация прошла успешно');
     }
     
-    var_dump($stmt->queryString);
+    // var_dump($stmt->queryString);
     
     if ($_GET['type'] === 'auth') {
         $stmt = $dbh->prepare('SELECT id, login, password FROM users WHERE login = ?');
@@ -75,9 +78,13 @@ if(isset($_GET['login']) && isset($_GET['password']) && isset($_GET['type'])) {
             $_SESSION['user_id'] = $user['id'];
         }
         }
+        addMessage('вход в приложение');
 }
 if (isset($_SESSION['user_id'])) {
     echo 'Авторизован id = ' . $_SESSION['user_id'];
 }
-    
+
+echo '</br>';
+echo getMessage();
+
 // https://infoblog1.ru/
