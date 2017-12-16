@@ -1,0 +1,12 @@
+		        $asked = true;  // проверяем на наличие поискового запроса
+		        if (isset($searchValid)) {
+		        	$searchAmount = isset($searchValid) ? count((array)$searchValid) : 0;
+		            for ($k = 0; $k < $searchAmount; $k++) {  // проверяем соответствие поисковому запросу
+		                if ($posts[$i]['tags'][$j] == (array)$searchValid[$k]) { //!!!
+		                    $asked = true;
+		                } else {
+		                    $asked = false;
+		                }
+		                break; // прерываем сверку тэгов
+		            }
+		        }

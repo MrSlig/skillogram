@@ -1,5 +1,11 @@
 <?php
 
+
+// rewrite to CMV version. Make new_post form hidden part of the main page for logged users. Show on request. Same goes to auth forms part.
+
+
+
+
 // Нужно привести к виду: SQL-запрс id пользователя -> name & ava
 // Необходима проверка формы id !
 $get_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : false;
