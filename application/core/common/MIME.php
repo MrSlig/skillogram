@@ -1,4 +1,8 @@
 <?php
+/*
+    DESKRIPTION PLACEHOLDER
+*/
+
 
 $mime_types = array(
     "stl" => "application/SLA",

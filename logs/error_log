@@ -1,0 +1,40 @@
+[Wed Nov 29 16:40:41.986247 2017] [ssl:warn] [pid 2536] AH01906: wp.localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Nov 29 16:40:41.986335 2017] [ssl:warn] [pid 2536] AH01909: wp.localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Nov 29 16:40:42.055816 2017] [ssl:warn] [pid 2537] AH01906: wp.localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Nov 29 16:40:42.055860 2017] [ssl:warn] [pid 2537] AH01909: wp.localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Dec 01 14:00:41.361615 2017] [ssl:warn] [pid 438] AH01906: wp.localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Dec 01 14:00:41.398744 2017] [ssl:warn] [pid 438] AH01909: wp.localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Fri Dec 01 14:00:41.505694 2017] [ssl:warn] [pid 439] AH01906: wp.localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Fri Dec 01 14:00:41.505762 2017] [ssl:warn] [pid 439] AH01909: wp.localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Dec 06 14:27:37.180296 2017] [ssl:warn] [pid 453] AH01906: wp.localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Dec 06 14:27:37.199523 2017] [ssl:warn] [pid 453] AH01909: wp.localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Dec 06 14:27:37.276001 2017] [ssl:warn] [pid 454] AH01906: wp.localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Dec 06 14:27:37.276073 2017] [ssl:warn] [pid 454] AH01909: wp.localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Dec 06 18:28:59.076068 2017] [ssl:warn] [pid 428] AH01906: wp.localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Dec 06 18:28:59.095325 2017] [ssl:warn] [pid 428] AH01909: wp.localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Dec 06 18:28:59.179347 2017] [ssl:warn] [pid 432] AH01906: wp.localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Dec 06 18:28:59.179386 2017] [ssl:warn] [pid 432] AH01909: wp.localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Sat Dec 09 01:30:29.615977 2017] [ssl:warn] [pid 434] AH01906: wp.localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Sat Dec 09 01:30:29.652343 2017] [ssl:warn] [pid 434] AH01909: wp.localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Sat Dec 09 01:30:29.794942 2017] [ssl:warn] [pid 440] AH01906: wp.localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Sat Dec 09 01:30:29.794993 2017] [ssl:warn] [pid 440] AH01909: wp.localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Dec 13 14:44:32.972580 2017] [ssl:warn] [pid 427] AH01906: wp.localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Dec 13 14:44:32.992560 2017] [ssl:warn] [pid 427] AH01909: wp.localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Dec 13 14:44:33.076471 2017] [ssl:warn] [pid 429] AH01906: wp.localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Dec 13 14:44:33.076545 2017] [ssl:warn] [pid 429] AH01909: wp.localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Dec 13 18:30:56.328393 2017] [ssl:warn] [pid 430] AH01906: wp.localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Dec 13 18:30:56.356780 2017] [ssl:warn] [pid 430] AH01909: wp.localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Wed Dec 13 18:30:56.440241 2017] [ssl:warn] [pid 431] AH01906: wp.localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Wed Dec 13 18:30:56.440327 2017] [ssl:warn] [pid 431] AH01909: wp.localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Thu Dec 14 00:26:17.506724 2017] [ssl:warn] [pid 419] AH01906: wp.localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Dec 14 00:26:17.647641 2017] [ssl:warn] [pid 419] AH01909: wp.localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Thu Dec 14 00:26:17.980225 2017] [ssl:warn] [pid 432] AH01906: wp.localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Dec 14 00:26:17.980299 2017] [ssl:warn] [pid 432] AH01909: wp.localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Mon Dec 18 13:23:02.520167 2017] [ssl:warn] [pid 1679] AH01906: wp.localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon Dec 18 13:23:02.520229 2017] [ssl:warn] [pid 1679] AH01909: wp.localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Mon Dec 18 13:23:02.589740 2017] [ssl:warn] [pid 1680] AH01906: wp.localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon Dec 18 13:23:02.589772 2017] [ssl:warn] [pid 1680] AH01909: wp.localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Mon Dec 18 16:13:46.214179 2017] [ssl:warn] [pid 421] AH01906: wp.localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon Dec 18 16:13:46.234015 2017] [ssl:warn] [pid 421] AH01909: wp.localhost:443:0 server certificate does NOT include an ID which matches the server name
+[Mon Dec 18 16:13:46.334968 2017] [ssl:warn] [pid 425] AH01906: wp.localhost:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Mon Dec 18 16:13:46.335045 2017] [ssl:warn] [pid 425] AH01909: wp.localhost:443:0 server certificate does NOT include an ID which matches the server name

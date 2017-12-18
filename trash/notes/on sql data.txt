@@ -1,11 +1,20 @@
-user:
+Also check sql options on rows data, it's kind of interesting...
+
+users: (fat: fix_plz)
 	1) id
 	2) login (check size, current is 32 char)
-	3) salt (check size & make salt double: php file + sql row; current size is 32 char)
+	3) salt (check size & make salt double: php file + sql row; current size is 32 char; unique)
 	4) password (check size with double salt; current size is 128 char)
 	5) avatar (u don't need one, just save avatar like <user_id_dir/unixTime.MIME & rewrite last used avatar. Also, make shure u stash only 5 last used 
 		avatars & check their size in px & bytes)
-^^ Also check sql options on rows data, it's kind of interesting...
+	6) group (users power group; default = member; size = 64 char)
+	7) email (unique; deafult = NULL; size = 64 char)
+	8) birthday (sql date)
+	9) gender (vide varaity - tinyint)
+	10) full name (mb better to cut in name/surname/etc; 128 char)
+	11) friends_with (user to user relations; 1024 char)
+	12) last_enter (timestamp; default: current_timestamp)
+	13) statistic (reserved for user actions spy; 1024 char)
 
 
 posts:
@@ -24,3 +33,10 @@ tags:
 	2) name
 	3) length (optional)
 	4) mentions (counter for posts mention)
+
+sessions:
+	1)id
+	2)user_id
+	3)token
+	4)serial
+	5)date

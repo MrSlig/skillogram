@@ -1,17 +1,28 @@
 <?php
+/*
+	DESKRIPTION PLACEHOLDER
+*/
+class	DB
+{
 
-/* Connecting to our sql DB (database) */
+	// connecting to our sql DB (database)
+	public static function	connect() {
+	
+		try {
+			$dsn		=	SQL . HOST . PORT . DATABASE;	//	from constants.php
+			$user		=	USER;
+			$password	=	PASSWORD;
 
-try {
-	$dsn = SQL . HOST . PORT . DATABASE;
-	$user = USER;
-	$password = PASSWORD;
+		    $dbh	=	new PDO($dsn, $user, $password);
+		    $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 
-    $dbh = new PDO($dsn, $user, $password);
-    $dbh->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+		    return	$dbh;
 
-} catch (PDOException $e) {
-    echo "Не удалось подключится к базе данных сервера."; //   alert to user; make it eyecandy
-    file_put_contents('logs/PDOErrors.txt', $e->getMessage(), FILE_APPEND);
-    die();
+		}	catch	(PDOException $e) {
+		    	echo "Не удалось подключится к базе данных сервера."; //   alert to user; make it eyecandy
+		    	file_put_contents('logs/PDOErrors.txt', $e->getMessage(), FILE_APPEND);
+		    die();
+		}
+	}
+
 }
