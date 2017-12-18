@@ -13,7 +13,7 @@ class Route
         $controller_name = 'Main';
         $action_name = 'index';
 
-        $routes = explode('/', $_SERVER['REQUEST_URI']);    // breaking our URI in $routes[]
+        $routes = explode('/', trim($_SERVER['REQUEST_URI'], '/'));    // breaking our URI in $routes[]
 
         // получаем имя контроллера
         if ( !empty($routes[1]) )
@@ -76,8 +76,8 @@ class Route
     
     function ErrorPage404()
     {
-    $host = 'http://' . $_SERVER['HTTP_HOST'] . '/';
-    header('HTTP/1.1 404 Not Found');
+        $host = 'http://' . $_SERVER['HTTP_HOST'] . '/';
+        header('HTTP/1.1 404 Not Found');
         header("Status: 404 Not Found");
         header('Location:' . $host . '404');
     }

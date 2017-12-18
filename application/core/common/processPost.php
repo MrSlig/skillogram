@@ -119,7 +119,7 @@ class   ProcessPost
 
         for ($i = 0; $i < $filled; $i++) { // перебираем посты
 
-            $user[] = CallUsers::byId($dbh, $post[$i]['user_id']);   // constructing $user[]
+            $user[] = CallUsers::byId($dbh, $post[$i]['user_id']);   // constructing $user[]; bad case, study sql JOIN
 
             if (isset($post[$i]['tags'])) { // constructing tagsLinks
                 $tagsLinks = $this->formatTags($post[$i]['tags']);

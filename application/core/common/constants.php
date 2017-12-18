@@ -18,7 +18,7 @@ define('AVATARS_PATH',		__DIR__ . '/assets/images/avatars/');
 
 
 /* 2. ---DATABASE---- */
-// smbd in the internet saied ' ' are critical in $dsn parametrs (you were warned)
+// smbd on the internet said ' ' are critical in $dsn parametrs (you were warned)
 define('SQL',		'mysql: ');	// type of sql db we connecting to
 define('HOST',		'host=localhost; ');	// host, which we want to connect to
 define('PORT',		'port=####; ');			// port, wich we want to connect to

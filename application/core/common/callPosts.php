@@ -11,7 +11,7 @@ class	CallPosts
 
 	/* 1. PREPARE POSTS BY POST ID */
 	// returns array of post data asked by posts id's
-	public static function	byId($dbh, $postId[]) {
+	public static function	byId($dbh, $postId) {
 		
 		$searchList	=	implode(', ', (array)$postId);
 				
@@ -30,7 +30,7 @@ class	CallPosts
 
 	/* 2. PREPARE POSTS BY USER ID */
 	// returns array of post data asked by users id's
-	public static function	byUser($dbh, $userId[]) {
+	public static function	byUser($dbh, $userId) {
 		
 		$searchList	=	implode(', ', (array)$userId);
 

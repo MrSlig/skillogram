@@ -9,6 +9,7 @@ require_once __DIR__ . '/../common/functions.php';
 $view = getView($_GET['action'] ?? 'index');
 
 $data = [];
+
 switch ($view) {
     case 'categories':        
         $data['categories'] = [
