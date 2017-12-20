@@ -83,8 +83,8 @@ class   ProcessPost
         	$passedTime = 'опубликовано давным-давно в далекой далекой галактике...';
         }
         
-        $date['posted'] =   date('Y-m-d H:i:s', time());
-        $date['passed'] =   $passedTime;
+        $postDate['posted'] =   date('Y-m-d H:i:s', time());
+        $postDate['passed'] =   $passedTime;
         
         return  $postDate;
     }
@@ -93,9 +93,9 @@ class   ProcessPost
 
     /* 2. FORMAT TAGS TO LINKS */
     // returns html tags links with search requests according to tags names
-    public function formatTags($tags[]) {
+    public function formatTags($tags) {
         
-        $tagsArray  = explode (', ', $tags[]);
+        $tagsArray  = explode (', ', $tags);
         $tagsAmount = count($tagsArray);
         $tagsLinks  = '';
 
@@ -112,22 +112,22 @@ class   ProcessPost
 
     /* 3. MAKE POSTS DATA ARRAY */
     //
-    public function postsBlock($posts[]) {
+    public function postsBlock($dbh, $posts) {
 
         $filled = count((array)$posts); // checking required minimum of posts
         $filled = $filled > POSTS_ON_PAGE ? POSTS_ON_PAGE : $filled;
 
         for ($i = 0; $i < $filled; $i++) { // перебираем посты
 
-            $user[] = CallUsers::byId($dbh, $post[$i]['user_id']);   // constructing $user[]; bad case, study sql JOIN
+            $user[] = CallUsers::byId($dbh, $posts[$i]['user_id']);   // constructing $user[]; bad case, study sql JOIN
 
             if (isset($post[$i]['tags'])) { // constructing tagsLinks
-                $tagsLinks = $this->formatTags($post[$i]['tags']);
+                $tagsLinks = $this->formatTags($posts[$i]['tags']);
             } else {
                 $tagsLinks = '...'; // shame on author, no post tags
             }
 
-            $date[] = $this->formatDate($post[$i]['date']);    // constructing $date[]
+            $date[] = $this->formatDate($posts[$i]['date']);    // constructing $date[]
 
             // specimen of post data            
             $postUnit = [
@@ -140,9 +140,9 @@ class   ProcessPost
                     'passed'    => $date['passed'],
                 ],
                 'content'   => [
-                        $post['image'],
-                        $post['legend'],
-                        $post['likes'],
+                        $posts[$i]['image'],
+                        $posts[$i]['legend'],
+                        $posts[$i]['likes'],
                         $tagsLinks,
                 ],
             ];

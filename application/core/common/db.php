@@ -1,6 +1,6 @@
 <?php
 /*
-	DESKRIPTION PLACEHOLDER
+	DESCRIPTION PLACEHOLDER
 */
 class	DB
 {
@@ -19,9 +19,9 @@ class	DB
 		    return	$dbh;
 
 		}	catch	(PDOException $e) {
-		    	echo "Не удалось подключится к базе данных сервера."; //   alert to user; make it eyecandy
+		        echo "Критическая ошибка. Не удалось подключится к базе данных сервера."; //   alert to user; make it eye   candy
 		    	file_put_contents('logs/PDOErrors.txt', $e->getMessage(), FILE_APPEND);
-		    die();
+		        die();
 		}
 	}
 

@@ -29,14 +29,14 @@
 */
 class	Authenticator
 {
-	$columns	= '`login`, `token`, `serial`, `date`';	// session data columns
+    private $columns	=   '`login`, `token`, `serial`, `date`';	// session data columns
 
 
 	/* 1. CHECK LOGIN STATUS */
 	// logged = true, !logged = false
 	public static function	loginStatus($dbh)
 	{
-		$status	=	false; // default logged status
+		$status =	false; // default logged status
 
 		if (isset($_SESSION['login']) && isset($_SESSION['token'])) {
 			// should we tell user if $_SESSION['token']
@@ -47,7 +47,7 @@ class	Authenticator
 						. 'WHERE `login` = ?';
 			$login	=	$_SESSION['login'];
 
-			$stmt	=	$dbh->prepare($querry);
+			$stmt	=	$dbh->prepare($query);
 			$stmt->execute($login);
 
 			$passport	=	$stmt->fetch(PDO::FETCH_ASSOC);
@@ -61,7 +61,7 @@ class	Authenticator
 
 		if (!$status) {
 
-			$msg	=	'Пожалуйста, выполните вход.'
+			$msg	=	'Пожалуйста, выполните вход.';
 			Authorization::redirectLogin($msg);
 		
 		}
@@ -75,11 +75,11 @@ class	Authenticator
 	{
 
 		// checks existion:
-		if (isset($_COOKIE['login']) && isset($_COOKIE['token']) && isset($_COOKIE)['serial']) {
+		if (isset($_COOKIE['login']) && isset($_COOKIE['token']) && isset(($_COOKIE)['serial'])) {
 
 			// if all auth cookie parametrs are set, prepare:
 			$query	=	'SELECT '
-						. $this->columns 
+						. self::columns
 						. ' FROM `sessions` WHERE `login` = ?';
 			$login	=	$_COOKIE['login'];
 			$token	=	$_COOKIE['token'];
@@ -96,14 +96,14 @@ class	Authenticator
 				
 				// VALIDATES COOKIE DATA:
 				// 1. cheks token:
-				if ($row['token']	==	$_COOKIE['token'])	{
+				if ($passport['token']	==	$_COOKIE['token'])	{
 					// 2. cheks serial:
 					if ($passport['serial']	==	$_COOKIE['serial'])	{
 
 						// resets user auth cookie and token entery in sql db:
 						// delete old auth cookie and record: 
-						$this->deleteCookie();
-						$this->deleteRecord($dbh, $login);
+						self::deleteCookie();
+                        self::deleteRecord($dbh, $login);
 
 						// reset auth cookie, record, session:
 						Session::createSession($dbh, $login);
@@ -146,8 +146,8 @@ class	Authenticator
 		$_SESSION['date']	=	date($time);
 
 		// WARNING: record first, becouse cookie sets data from DB!
-		$this->createRecord($dbh, $login, $token, $time);
-		$this->createCookie($dbh);
+        self::createRecord($dbh, $login, $token, $time);
+        self::createCookie($dbh, $login);
 
 		return true;
 	}
@@ -173,7 +173,7 @@ class	Authenticator
 		$serial	=	Functions::genRandStr(32);	// where is collisions check?!
 
 		$query	=	'INSERT INTO `sessions` ('
-					. $this->columns
+					. self::columns
 					. ') VALUES (:login, :token, :serial, :date);';
 		
 		$stmt = $dbh->prepare($query);
@@ -201,10 +201,10 @@ class	Authenticator
 
 	/* 8. SET NEW AUTH COOKIE */
 	// sets user auth cookie data. Expires MONTH later.
-	public static function	createCookie($dbh)
+	public static function	createCookie($dbh, $login)
 	{
 		$query		=	'SELECT '
-						. $this->columns 
+						. self::columns
 						. 'FROM `sessions` WHERE `login` = ?';
 		
 		$stmt = $dbh->prepare($query);
@@ -246,3 +246,4 @@ class	Authenticator
 	</div>
 
 </section>
+*/

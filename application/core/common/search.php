@@ -27,7 +27,7 @@ class	Search
 
 	/* 2. SEARCH ID'S OF POSTS CONTAINING TAGS ARRAY */
 	// searches post id's by given tags (wip: sort them by relevance)
-	public static function	searchedIDs($dbh, $searchTags[]) {
+	public static function	searchedIDs($dbh, $searchTags) {
 
 		$query			=	'SELECT `id`, `tags` FROM `posts` WHERE `tags` = ?';
 		$stmt			=	$dbh->prepare($query);
@@ -45,12 +45,12 @@ class	Search
 
 	/* 3. STEPPED SEARCH BY TAGS */
 	// uses all search step functions
-	public static function	steppedSearch($searchTags[]) {
+	public static function	steppedSearch($dbh, $searchTags) {
 		
 		// part 1
 		if (isset($searchTags)) {
 			// think about it, do you really need this check?
-			$searchValid	=	$this->searchRegular($searchTags);
+			$searchValid	=	self::searchRegular($searchTags);
 		} else {
 			$searchValid	=	false;	// brakes on this part
 			echo 'Упс! Кто-то опять искал <null>!';
@@ -59,7 +59,7 @@ class	Search
 		// part 2
 		if ($searchValid) {	// if search tags passed regular expression check
 		
-			$searchedIDs	=	$this->searchedIDs($dbh, $searchValid);
+			$searchedIDs	=	self::searchedIDs($dbh, $searchValid);
 		
 			if ($searchedIDs) {
 		

@@ -1,17 +1,16 @@
 <?php
 
-class Controller {
+class   Controller {
+
+	public  $model;
+	public  $view;
 	
-	// i don't like public. What's the point, exactly? Can we do it other way?
-	public $model;
-	public $view;
-	
-	function __construct()
+	function    __construct()
 	{
-		$this->view = new View();
+		$this->view =   new View();
 	}
 	
-	function action_index()
+	function    action_index()
 	{
 
 	}

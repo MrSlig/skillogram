@@ -5,9 +5,9 @@
 class	CallPosts
 {
 	// default SELECT sql request for posts table:
-	$select	=	'SELECT `id`, `user_id`, `date`, `image`, `likes`, `tags`, `legend` ';
+	private $select	=	'SELECT `id`, `user_id`, `date`, `image`, `likes`, `tags`, `legend` ';
 	// default LIMIT sql request for posts table:
-	$limit	=	' LIMIT 0, ' . POSTS_ON_PAGE;
+    private $limit	=	' LIMIT 0, ' . POSTS_ON_PAGE;
 
 	/* 1. PREPARE POSTS BY POST ID */
 	// returns array of post data asked by posts id's
@@ -15,7 +15,7 @@ class	CallPosts
 		
 		$searchList	=	implode(', ', (array)$postId);
 				
-		$query	=	$this->select . 'WHERE `id` = ?' . $this->limit;
+		$query	=	self::select . 'WHERE `id` = ?' . self::limit;
 		$stmt	=	$dbh->prepare($query);
 		$stmt->execute([$searchList]);
 		$askedPosts	=	$stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -34,7 +34,7 @@ class	CallPosts
 		
 		$searchList	=	implode(', ', (array)$userId);
 
-		$query	=	$this->select . 'WHERE `user_id` = ?' . $this->limit;
+		$query	=	self::select . 'WHERE `user_id` = ?' . self::limit;
 		$stmt	=	$dbh->prepare($query);
 		$stmt->execute([$searchList]);
 		$askedPosts	=	$stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -54,7 +54,7 @@ class	CallPosts
 		// order:
 		$type	=	(bool)$oldest	==	true ? 'DESK' : 'ASC';
 		
-		$query	=	$this->select . 'ORDER BY `date` ' . $type . $this->limit;
+		$query	=	self::select . 'ORDER BY `date` ' . $type . self::limit;
 		$stmt	=	$dbh->prepare($query);
 		$stmt->execute([]);
 		$askedPosts	=	$stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -74,7 +74,7 @@ class	CallPosts
 		// order:
 		$type	=	(bool)$lowest	==	true ? 'ASC' : 'DESC';
 		
-		$query	=	$this->select . 'ORDER BY `likes` ' . $type . $this->limit;
+		$query	=	self::select . 'ORDER BY `likes` ' . $type . self::limit;
 		$stmt	=	$dbh->prepare($query);
 		$stmt->execute([]);
 		$askedPosts	=	$stmt->fetchAll(PDO::FETCH_ASSOC);

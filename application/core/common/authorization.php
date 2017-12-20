@@ -69,8 +69,8 @@ class	Authorization
 	public static function	logout($dbh, $login)
 	{
 		session_destroy();	// kills user session
-		$this->deleteCookie();
-		$this->deleteRecord($dbh, $login);
+		self::deleteCookie();
+		self::deleteRecord($dbh, $login);
 		// redirect to index
 
 		return	true;
@@ -129,3 +129,4 @@ if (Session::checkLoginState($dbh)){
 
 Session::deleteCookie();
 header('location:index.php');
+*/

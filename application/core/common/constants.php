@@ -54,4 +54,4 @@ define('MAX_USER_CALL',	16);	// called in model_main
 
 
 /* 6. -----ELSE------ */
-define('SALT',	value);			// static salt for passwords encryption
+define('SALT',	'$up3r_$@17y');			// static salt for passwords encryption
