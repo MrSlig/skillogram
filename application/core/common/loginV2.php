@@ -1,9 +1,7 @@
 <?php
-/*
-	DESKRIPTION PLACEHOLDER
-*/
-
-
+/**
+ * Class Login
+ */
 class Login
 {
 	private $_id;
@@ -58,7 +56,7 @@ class Login
 
 			if(!$this->verifyDatabase())
 			{
-				trow new Exeption('Invalid Username/Password');
+				throw new Exeption('Invalid Username/Password');
 			}
 
 			$this->_access = true;
@@ -98,7 +96,7 @@ class Login
 
 	public function isDataValid()
 	{
-		return ((preg_match('/^[a-zA-Z0-9]{5,12}$/', $this->_username) && (preg_match('/^[a-zA-Z0-9]{5,12}$/', $this->_password)) ? true : false;
+		return (preg_match('/^[a-zA-Z0-9]{5,12}$/', $this->_username) && preg_match('/^[a-zA-Z0-9]{5,12}$/', $this->_password)) ? true : false;
 	}
 
 	public function isTokenValid()

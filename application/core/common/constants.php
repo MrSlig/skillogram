@@ -1,8 +1,7 @@
 <?php
-/*
-	DESKRIPTION PLACEHOLDER
-*/
-
+/**
+ *
+ */
 
 /* 1. --DIRECTORIES-- */
 // needs workability cheking:

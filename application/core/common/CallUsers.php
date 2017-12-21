@@ -1,7 +1,8 @@
 <?php
-/*
-	FOR `users` TABLE SQL MANAGMENT
-*/
+
+/**
+ * Class CallUsers for `users` table management
+ */
 class	CallUsers
 {
 	// default SELECT sql request for users table:

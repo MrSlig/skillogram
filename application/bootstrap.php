@@ -1,54 +1,51 @@
 <?php
-
+/**
+ * Загрузочный файл ядра сайта.
+ *
+ * Здесь обычно подключаются дополнительные модули, реализующие различный функционал:
+ *  > аутентификацию
+ *  > кеширование
+ *  > работу с формами
+ *  > абстракции для доступа к данным
+ *  > ORM
+ *  > Unit тестирование
+ *  > Benchmarking
+ *  > Работу с изображениями
+ *  > Backup
+ *  > и др.
+ */
 /* REQUIRED FIRST: */
 require_once 'core/common/constants.php';	// connecting constants module;
 // далее: предположительно можно что-то выгодать с путей-констант
 
 /* CORE: */
-require_once 'core/model.php';      // base model
-require_once 'core/view.php';       // base view
-require_once 'core/controller.php'; // base controller
-
-/*
-Здесь обычно подключаются дополнительные модули, реализующие различный функционал:
-	> аутентификацию
-	> кеширование
-	> работу с формами
-	> абстракции для доступа к данным
-	> ORM
-	> Unit тестирование
-	> Benchmarking
-	> Работу с изображениями
-	> Backup
-	> и др.
-Например:
-*/
+require_once 'core/Model.php';      // base model
+require_once 'core/View.php';       // base view
+require_once 'core/Controller.php'; // base controller
 
 /* ENGINE PARTS: */
-require_once 'core/common/functions.php';	// connecting common functions class
+require_once 'core/common/Functions.php';	// connecting common functions class
 require_once 'core/common/MIME.php';        // connecting <MIME types> module
 
-// callBy/sort data from qsl db table
-require_once 'core/common/callPosts.php';	// connecting post management class
-require_once 'core/common/callUsers.php';	// connecting users management class (wip!)
-require_once 'core/common/callTags.php';	// connecting tags management class (wip!)
+/* PLACEHOLDER (WIP): */
+require_once 'core/common/CallPosts.php';	// connecting post management class
+require_once 'core/common/CallUsers.php';	// connecting users management class (wip!)
+require_once 'core/common/CallTags.php';	// connecting tags management class (wip!)
 
-require_once 'core/common/processPost.php';	// connecting single post creator class
-require_once 'core/common/publish.php';     // connecting <publish new post> class (wip!)
-require_once 'core/common/search.php';      // connecting search class
+require_once 'core/common/ProcessPost.php';	// connecting single post creator class
+require_once 'core/common/Publish.php';     // connecting <publish new post> class (wip!)
+require_once 'core/common/Search.php';      // connecting search class
 
-// keep in mind it's wip:
-require_once 'core/common/authenticator.php';	// connecting user authenticator management class
-require_once 'core/common/authorization.php';	// connecting user authorization management class
+require_once 'core/common/Authenticator.php';	// connecting user authenticator management class
+require_once 'core/common/Authorization.php';	// connecting user authorization management class
 
 /* IGNITE: */
-require_once 'core/common/db.php';	// connecting to sql database
+require_once 'core/common/DB.php';	// connecting to sql database
 $dbh = DB::connect();               // for all stmt (sql db requests)
+require_once 'core/Route.php';      // containing router class
+Route::start();                     // starting our router
 
 /*	OLD, UPDATE:
 require_once 'core/common/session.php';	// containing session class
 Session::start();                       // starting our session
 */
-
-require_once 'core/route.php';  // containing router class
-Route::start();                 // starting our router

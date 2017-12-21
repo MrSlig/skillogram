@@ -1,23 +1,6 @@
 <?php
-
-class   View
-{
-	//public $template_view; // здесь можно указать общий вид по умолчанию.
-	
-	function    generate($content_view, $template_view, $data = null)
-	{
-		/*
-		if(is_array($data)) {
-			// преобразуем элементы массива в переменные
-			extract($data);
-		}
-		*/
-		
-		include 'application/views/' . $template_view;
-	}
-}
-
-/*
+/**
+ * Class View
  * Не трудно догадаться, что метод generate предназначен для формирования вида. В него передаются следующие параметры:
  *
  *  1) $content_file — виды отображающие контент страниц;
@@ -29,5 +12,16 @@ class   View
  *
  * В нашем случае общий шаблон будет содержать header, menu, sidebar и footer, а контент страниц будет содержаться в отдельном виде.
  * Опять же, это сделано для упрощения.
- * 
  */
+class   View    {
+	//public $template_view; // здесь можно указать общий вид по умолчанию.
+	function    generate($content_view, $template_view, $data = null)   {
+		/*
+		if(is_array($data)) {
+			// преобразуем элементы массива в переменные
+			extract($data);
+		}
+		*/
+		include 'application/views/' . $template_view;
+	}
+}

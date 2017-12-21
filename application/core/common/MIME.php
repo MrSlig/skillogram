@@ -1,9 +1,7 @@
 <?php
-/*
-    DESKRIPTION PLACEHOLDER
-*/
-
-
+/**
+ *
+ */
 $mime_types =   array(
     "stl"   => "application/SLA",
     "step"  => "application/STEP",
@@ -14,7 +12,6 @@ $mime_types =   array(
     "drw"   => "application/drafting",
     "tsp"   => "application/dsptype",
     "dxf"   => "application/dxf",
-    "xls"   => "application/excel",
     "unv"   => "application/i-deas",
     "jar"   => "application/java-archive",
     "hqx"   => "application/mac-binhex40",
@@ -207,6 +204,9 @@ $mime_types =   array(
     "vrm"   => "x-world/x-vrml",
     "vrml"  => "x-world/x-vrml"
 );
+/* CUTTED:
+    "xls"   => "application/excel",
+*/
 
 // типы файлов по расширению:
 $loc_mime_types =   array(

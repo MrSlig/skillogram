@@ -1,6 +1,8 @@
 <?php
-
-ini_set('display_errors', 1);   // set apach config on displaying php errors ?
-ini_set('display_startup_errors', 1);
+/**
+ * Единая точка входа
+ */
+ini_set('display_errors', true);   // sets PHP config on displaying php. Needs to be checked: if developer
+ini_set('display_startup_errors', true);
 error_reporting(E_ALL);
-require_once __DIR__ . '/application/bootstrap.php';   // initiating site loading
+require_once 'application/bootstrap.php';   // initiating core

@@ -1,15 +1,15 @@
 <?php
-/*
-	USER AUTHORIZATION FUNCTIONS
-	
-	Description:
-*/
-class	Authorization
-{
+/**
+ * Class Authorization
+ * USER AUTHORIZATION FUNCTIONS
+ * Description:
+ *
+ */
+class	Authorization   {
 	/* 1. PROCESS USER INPUT */
 	// process user provided login and password and logs him
-	public static function	login($dbh)
-	{
+	public static function	login($dbh) {
+        $status		=	false;	// default status of user login attempt
 		// process input data block
 		if (isset($_POST['login']) && isset($_POST['password'])) {
 
@@ -19,76 +19,56 @@ class	Authorization
 			$user		=	callUsers::sortLogin($dbh, $login);
 
 			$i			=	0;		// default counter of user login attempt
-			$status		=	false;	// default status of user login attempt
-			$msg		=	'';		// default message to user
-
+			$message		=	'';		// default message to user
 			if (isset($user[1]['login'])) {
-				
-				// report multiple login records with same name!
-			
+				// report multiple login attempts to user, hold record
 			} else {
-			
 				if (isset($user['login'])) {
-
-					$dbSalt	=	$user['salt'];
+					$dbSalt     =	$user['salt'];
 					$dbPassword	=	md5($user['password'] . SALT . $dbSalt, true);
-
-					$status	=	$password == $dbPassword ? true : false;
-
+					$status     =	$password == $dbPassword ? true : false;
 				}
-
 			}
-
-			if ($status) {				
-
+			if ($status) {
 				$status	=	Authenticator::createSession($dbh, $login);
-
 			} else {
-				
 				if ($i < 10){
 					$i++;
-					$msg	=	'Пожалуйста, убедитесь, что все поля заполнены корректно.';
+					$message	=	'Пожалуйста, убедитесь, что все поля заполнены корректно.';
 					self::redirectLogin($dbh);
 				} else {
-					// trigger cooldown. Also, can reprt on user emal. Also can ask password reset.
+					// trigger cooldown. Also, can report on user email. Also can ask password reset.
 				}
-
 			}
-
 		} else {
-			$msg	=	'Пожалуйста, убедитесь, что все поля заполнены.';
+			$message	=	'Пожалуйста, убедитесь, что все поля заполнены.';
 			self::redirectLogin($dbh);
 		}
-
 		return	$status;
 	}	
 
 
 	/* 2. LOGOUT USER */
 	// process user provided login and password
-	public static function	logout($dbh, $login)
-	{
+	public static function	logout($dbh, $login)    {
 		session_destroy();	// kills user session
 		self::deleteCookie();
 		self::deleteRecord($dbh, $login);
 		// redirect to index
-
 		return	true;
 	}
 
 
 	/* 3. REDIRECT TO LOGIN */
-	// redirects user to login page according to loggin $status
-	public static function	redirectLogin($msg)
-	{
+	// redirects user to login page according to login $status
+	public static function	redirectLogin($msg) {
 		// redirects user to login page according to $logged status
 	}
 
 
 	/* 4. USER REGISTRATION */
 	// process user data from registration form
-	public static function	registration($dbh)
-	{
+	public static function	registration($dbh)  {
 		// CODE
 	}
 }
@@ -120,7 +100,7 @@ if (Session::checkLoginState($dbh)){
 	}
 
 } else {
-	// ascing user to autorize
+	// asking user to autorize
 }
 
 
