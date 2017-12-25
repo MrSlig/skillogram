@@ -23,7 +23,7 @@ class	Search  {
 
 	/* 2. SEARCH ID'S OF POSTS CONTAINING TAGS ARRAY */
 	// searches post id's by given tags (wip: sort them by relevance)
-	public static function	searchedIDs($dbh, $searchTags)  {
+	public static function	searchedIDs(PDO $dbh, $searchTags)  {
 		$query			=	'SELECT `id`, `tags` FROM `posts` WHERE `tags` = ?';
 		$stmt			=	$dbh->prepare($query);
 		$searchList		=	implode(', ', (array)$searchTags);
@@ -38,7 +38,7 @@ class	Search  {
 
 	/* 3. STEPPED SEARCH BY TAGS */
 	// uses all search step functions
-	public static function	steppedSearch($dbh, $searchTags)    {
+	public static function	steppedSearch(PDO $dbh, $searchTags)    {
 		// part 1
 		if (isset($searchTags)) {
 			// think about it, do you really need this check?

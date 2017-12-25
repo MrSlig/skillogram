@@ -44,7 +44,7 @@ class	Authenticator   {
 
 	/* 1. CHECK LOGIN STATUS */
 	// logged = true, !logged = false
-	public static function  loginStatus($dbh)   {
+	public static function  loginStatus(PDO $dbh)   {
 		$status =	false; // default logged status
 
 		if (isset($_SESSION['login']) && isset($_SESSION['token'])) {
@@ -75,7 +75,7 @@ class	Authenticator   {
 
 	/* 2. CHECK AUTH COOKIE */
 	// description placeholder
-	public static function	authCookie($dbh)    {
+	public static function	authCookie(PDO $dbh)    {
 		// checks existion:
 		if (isset($_COOKIE['login']) && isset($_COOKIE['token']) && isset(($_COOKIE)['serial'])) {
 
@@ -127,7 +127,7 @@ class	Authenticator   {
 
 	/* 3. CREATE SESSION */
 	// starts user session
-	public static function	createSession($dbh, $login) {
+	public static function	createSession(PDO $dbh, $login) {
 		session_start(['cookie_lifetime'	=>	20 * MINUTE, ]);	// starting user session; mind of cookies lifetime
 
 		$token	=	Functions::genRandStr(32);	// where is collisions check?!
@@ -146,7 +146,7 @@ class	Authenticator   {
 
 	/* 5. DEL OLD TOKEN FROM DB */
 	// deletes our old user token and serial from sql db
-	public static function	deleteRecord($dbh, $login)  {
+	public static function	deleteRecord(PDO $dbh, $login)  {
 		$query	=	'DELETE FROM sessions WHERE login= ?';	// is it correct?
 		$stmt	=	$dbh->prepare($query);
 		$stmt->execute($login);
@@ -185,7 +185,7 @@ class	Authenticator   {
 
 	/* 8. SET NEW AUTH COOKIE */
 	// sets user auth cookie data. Expires MONTH later.
-	public static function	createCookie($dbh, $login)  {
+	public static function	createCookie(PDO $dbh, $login)  {
 		$query		=	'SELECT '
 						. self::columns
 						. 'FROM `sessions` WHERE `login` = ?';

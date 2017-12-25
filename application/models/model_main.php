@@ -3,15 +3,15 @@
  * Class Model_Main
  */
 class Model_Main extends Model  {
-	/* Place, where all posts data proseeds */
-	/* case 1: posts sorted by date (deafoult) */
-	public function get_data()  {
+	/* Place, where all posts data proceeds */
+	/* case 1: posts sorted by date (default) */
+	public function get_data()  {   // overrides method in class core/Model
 		$posts  =   CallPostsByDate();	// asking post data by timestamp
 		$data   =   postsBlock($posts);
 		return  $data;
 	}
 
-	/* case 2(default): posts sorted by rating relevanse (likes) */
+	/* case 2(default): posts sorted by relevant rating (likes) */
 	public function get_dataRate()  {
 		$posts  =   CallPostsByRate();	// asking post data by rating
 		$data   =   postsBlock($posts);
@@ -26,7 +26,7 @@ class Model_Main extends Model  {
 			$data   =   postsBlock($searchedPosts);
 			return  $data;
 		}
-		// also, notice, that user dont know, which tags we don't have in our sql if one or more tags found
+		// also, notice, that user don't know, which tags we don't have in our sql if one or more tags found
 	}
-	// also, notice, that we never chek work of function postsBlock()!
+	// also, notice, that we never check work of function postsBlock()!
 }

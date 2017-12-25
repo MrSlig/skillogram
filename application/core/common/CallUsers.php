@@ -12,7 +12,7 @@ class	CallUsers
 
 	/* 1. CALL USERS BY ID */
 	// returns array of user data asked by users id
-	public static function	byId($dbh, $id) {
+	public static function	byId(PDO $dbh, $id) {
 	    // $usersAmount = count($id);	// idk, why i asked amount =/
 	    $query	=	self::select . 'WHERE `id` = ?' . self::limit;
 		$stmt	=	$dbh->prepare($query);
@@ -29,7 +29,7 @@ class	CallUsers
 
 	/* 2. CALL USERS BY LOGINS */
 	// returns array of user data asked by users logins
-	public static function	byLogin($dbh, $logins) {
+	public static function	byLogin(PDO $dbh, $logins) {
 
 	    $query	=	self::select . 'WHERE `login` = ?' . self::limit;
 		$stmt	=	$dbh->prepare($query);

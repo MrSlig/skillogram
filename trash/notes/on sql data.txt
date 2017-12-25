@@ -25,6 +25,7 @@ posts:
 	5) likes (counter, default: 0)
 	6) tags (default: #tabula rasa varchar(256))
 	7) legend (if set; default: NULL, varchar(256))
+	// posted by <device>
 
 
 // tags table is overkill. Forget about it for a while. It's only for tags average rating for seeking trands. (well, probably i want to do it anyway now)

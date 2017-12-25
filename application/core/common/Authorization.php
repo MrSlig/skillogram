@@ -8,7 +8,7 @@
 class	Authorization   {
 	/* 1. PROCESS USER INPUT */
 	// process user provided login and password and logs him
-	public static function	login($dbh) {
+	public static function	login(PDO $dbh) {
         $status		=	false;	// default status of user login attempt
 		// process input data block
 		if (isset($_POST['login']) && isset($_POST['password'])) {
@@ -50,7 +50,7 @@ class	Authorization   {
 
 	/* 2. LOGOUT USER */
 	// process user provided login and password
-	public static function	logout($dbh, $login)    {
+	public static function	logout(PDO $dbh, $login)    {
 		session_destroy();	// kills user session
 		self::deleteCookie();
 		self::deleteRecord($dbh, $login);
@@ -68,7 +68,7 @@ class	Authorization   {
 
 	/* 4. USER REGISTRATION */
 	// process user data from registration form
-	public static function	registration($dbh)  {
+	public static function	registration(PDO $dbh)  {
 		// CODE
 	}
 }

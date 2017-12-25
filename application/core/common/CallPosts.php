@@ -10,7 +10,7 @@ class	CallPosts   {
 
 	/* 1. PREPARE POSTS BY POST ID */
 	// returns array of post data asked by posts id's
-	public static function	byId($dbh, $postId) {
+	public static function	byId(PDO $dbh, $postId) {
 		$searchList	=	implode(', ', (array)$postId);
 				
 		$query	=	self::select . 'WHERE `id` = ?' . self::limit;
@@ -27,7 +27,7 @@ class	CallPosts   {
 
 	/* 2. PREPARE POSTS BY USER ID */
 	// returns array of post data asked by users id's
-	public static function	byUser($dbh, $userId) {
+	public static function	byUser(PDO $dbh, $userId) {
 		$searchList	=	implode(', ', (array)$userId);
 
 		$query	=	self::select . 'WHERE `user_id` = ?' . self::limit;
@@ -44,7 +44,7 @@ class	CallPosts   {
 
 	/* 3. PREPARE POSTS BY DATE */
 	// returns array of post data sorted by timestamp
-	public static function	sortDate($dbh, $oldest) {
+	public static function	sortDate(PDO $dbh, $oldest) {
 		// order:
 		$type	=	(bool)$oldest	==	true ? 'DESK' : 'ASC';
 		
@@ -62,7 +62,7 @@ class	CallPosts   {
 
 	/* 4. PREPARE POSTS BY RATE */
 	// returns array of post data asked by rating(likes)
-	public static function	sortRate($dbh, $lowest) {
+	public static function	sortRate(PDO $dbh, $lowest) {
 		// order:
 		$type	=	(bool)$lowest	==	true ? 'ASC' : 'DESC';
 		

@@ -85,7 +85,7 @@ class   ProcessPost {
 
     /* 3. MAKE POSTS DATA ARRAY */
     //
-    public function postsBlock($dbh, $posts)    {
+    public function postsBlock(PDO $dbh, $posts)    {
         $filled = count((array)$posts); // checking required minimum of posts
         $filled = $filled > POSTS_ON_PAGE ? POSTS_ON_PAGE : $filled;
         for ($i = 0; $i < $filled; $i++) { // перебираем посты
