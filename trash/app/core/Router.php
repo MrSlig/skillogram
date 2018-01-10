@@ -6,6 +6,6 @@ class Router extends BaseRouter {
         return 'DefaultController';
     }
     public function getActionName() {
-        return $_GET['action'] ?? 'index';
+        return ($_GET['action'] ?? 'index') . 'Action';
     }
 }
