@@ -11,5 +11,8 @@ define('VIEW_PATH', __DIR__ . '/../view/');
 $router = new Router();
 
 $content = $router->run();
-
-require VIEW_PATH . 'include/content.php';
+if (is_string($content)) {
+    require VIEW_PATH . 'include/content.php';
+} else {
+    echo json_encode($content);
+}
