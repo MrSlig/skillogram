@@ -8,9 +8,9 @@ require_once __DIR__ . '/../core/Router.php';
 
 define('VIEW_PATH', __DIR__ . '/../view/');
 
-$router = new Router();
+$router     =   new Router();
+$content    =   $router->run();
 
-$content = $router->run();
 if (is_string($content)) {
     require VIEW_PATH . 'include/content.php';
 } else {
