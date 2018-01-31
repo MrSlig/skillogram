@@ -1,0 +1,15 @@
+packagist
+
+open-server
+
+php + composer - install
+
+
+
+
+
+"autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
